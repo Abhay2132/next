@@ -85,7 +85,7 @@ const itemD = [
   return item;
 })
 
-// console.log(itemD);
+console.log(itemD);
 
 function setH() {
   if (typeof window == "undefined") return;
