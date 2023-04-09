@@ -1,9 +1,15 @@
-import Root from "./root"
+import Root from "./root";
+import Head from "next/head";
 
-export default function Index (){
+export default function Index() {
   return (
-    <Root>
-      <h1>Abhay</h1>
-    </Root>
-  )
+    <>
+      <Head>
+        <title>Apps</title>
+      </Head>
+      <Root>
+        <h1>Abhay</h1>
+      </Root>
+    </>
+  );
 }
