@@ -69,23 +69,17 @@ const A = memo(function ({ icon, href, text, cn, onClick, dataactive, index }) {
       dataactive={"" + dataactive}
       data-index={index}
     >
-      <img src={icon} gc={""+(!!console.log({icon})||icon)} /> <span>{text}</span>
+      <img src={icon}/> <span>{text}</span>
     </Link>
   );
 });
 
-const isServer = typeof window == "undefined";
+const cdn = "https://abhay2132.github.io/cdns/icons/"
 const itemD = [
-  ["/", "/icons/home.svg", "Home", "side-panel-item"],
-  ["/about", "/icons/about.svg", "About", "side-panel-item"],
-  ["/settings", "/icons/setting.svg", "Settings", "side-panel-item"],
-].map((item)=>{
-  if(isServer) item[1] = (process.env.BASEPATH||"")+item[1]
-  else if(location.pathname.startsWith("/next")) item[1] = "/next"+item[1]
-  return item;
-})
-
-console.log(itemD);
+  ["/", cdn+"home.svg", "Home", "side-panel-item"],
+  ["/about", cdn+"about.svg", "About", "side-panel-item"],
+  ["/settings", cdn+"settings.svg", "Settings", "side-panel-item"],
+]
 
 function setH() {
   if (typeof window == "undefined") return;
