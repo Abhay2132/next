@@ -1,107 +1,340 @@
 :root {
-  --max-width: 1100px;
-  --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  /*Default Theme Variables*/
+  
+  --hmbgr-clr: #333;
+  --hmbgr-hvr: #ccc;
+  --nav-bg: #fff;
+  --nav-clr: #333;
+  --nav-shd-clr: #bbb;
+  --side-panel-bg: var(--nav-bg);
+  --side-panel-item-clr: #222;
+  --spi-bg: #dedede;
+  --side-panel-icon-invert: 0;
+  --sp-item-bg: red;
+  --window-bg: #fff;
+  --window-clr: #222;
 
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  /*dark Theme Variables*/
+  --dark-hmbgr-clr: #aaa;
+  --dark-hmbgr-hvr: #333;
+  --dark-nav-bg: #222;
+  --dark-nav-clr: #eee;
+  --dark-nav-shd-clr: transparent;
+  --dark-side-panel-bg: var(--dark-nav-bg);
+  --dark-side-panel-item-clr: #ddd;
+  --dark-spi-bg: #555;
+  --dark-side-panel-icon-invert: 0.7;
+  --dark-sp-item-bg: transparent;
+  --dark-window-bg: #333;
+  --dark-window-clr: #eee;
 
-  --primary-glow: conic-gradient(
-    from 180deg at 50% 50%,
-    #16abff33 0deg,
-    #0885ff33 55deg,
-    #54d6ff33 120deg,
-    #0071ff33 160deg,
-    transparent 360deg
-  );
-  --secondary-glow: radial-gradient(
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0)
-  );
+   /*Dark Backgrounds*/
+  --bg-f: #fff;
+  --bg-e: #eee;
+  --bg-d: #ddd;
+  --bg-c: #ccc;
+  --bg-b: #bbb;
+  --bg-a: #aaa;
 
-  --tile-start-rgb: 239, 245, 249;
-  --tile-end-rgb: 228, 232, 233;
-  --tile-border: conic-gradient(
-    #00000080,
-    #00000040,
-    #00000030,
-    #00000020,
-    #00000010,
-    #00000010,
-    #00000080
-  );
+  /*Light Font Color */
+  --clr-0: #000;
+  --clr-1: #111;
+  --clr-2: #222;
+  --clr-3: #333;
+  --clr-4: #444;
+  --clr-5: #555;
 
-  --callout-rgb: 238, 240, 241;
-  --callout-border-rgb: 172, 175, 176;
-  --card-rgb: 180, 185, 188;
-  --card-border-rgb: 131, 134, 135;
+  --invert-1: 0;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --hmbgr-clr: var(--dark-hmbgr-clr);
+    --hmbgr-hvr: var(--dark-hmbgr-hvr);
+    --nav-bg: var(--dark-nav-bg);
+    --nav-clr: var(--dark-nav-clr);
+    --nav-shd-clr: var(--dark-nav-shd-clr);
+    --side-panel-bg: var(--dark-side-panel-bg);
+    --side-panel-item-clr: var(--dark-side-panel-item-clr);
+    --spi-bg: var(--dark-spi-bg);
+    --side-panel-icon-invert: var(--dark-side-panel-icon-invert);
+    --window-bg: var(--dark-window-bg);
+    --window-clr: var(--dark-window-clr);
 
-    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-    --secondary-glow: linear-gradient(
-      to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
-    );
+    /*Dark Backgrounds*/
+  --bg-f: #000;
+  --bg-e: #111;
+  --bg-d: #222;
+  --bg-c: #333;
+  --bg-b: #444;
+  --bg-a: #555;
 
-    --tile-start-rgb: 2, 13, 46;
-    --tile-end-rgb: 2, 5, 19;
-    --tile-border: conic-gradient(
-      #ffffff80,
-      #ffffff40,
-      #ffffff30,
-      #ffffff20,
-      #ffffff10,
-      #ffffff10,
-      #ffffff80
-    );
+  /*Light Font Color */
+  --clr-0: #fff;
+  --clr-1: #eee;
+  --clr-2: #ddd;
+  --clr-3: #ccc;
+  --clr-4: #bbb;
+  --clr-5: #aaa;
 
-    --callout-rgb: 20, 20, 20;
-    --callout-border-rgb: 108, 108, 108;
-    --card-rgb: 100, 100, 100;
-    --card-border-rgb: 200, 200, 200;
+  /* invert */
+    --invert-1: 1;
+  
   }
+}
+
+
+nav {
+  padding: 0;
+/*  overflow: auto;*/
+  padding-inline: 0;
+  display: flex;
+  height: var(--nav-H);
+
+  background-color: var(--bg-e);
+/*  background: rgba(0, 0, 0, 0.1);*/
+  color: var(--nav-clr);
+
+/*  box-shadow: 0 3px 5px var(--nav-shd-clr);*/
+  z-index: 99;
+}
+
+#hmbgr:hover {
+  background-color: var(--hmbgr-hvr);
+}
+
+#hmbgr {
+  height: 40px;
+  width: 40px;
+  margin: 5px;
+  border-radius: 5px;
+  padding: 6px 0 0 0;
+  box-sizing: border-box;
+}
+
+#hmbgr > hr {
+  width: 26px;
+  border: 0;
+  /*  border-top: 2px solid;*/
+  height: 2px;
+  background-color: var(--hmbgr-clr);
+  border-radius: 15px;
+  display: block;
+  transition: 200ms;
+  margin: 6px 7px 0 7px;
+}
+
+.hmbgr-x > hr:nth-child(1) {
+  width: 25px !important;
+  /*  opacity: 0 !important;*/
+}
+
+#hmbgr > hr:first-child {
+  width: 18px;
+}
+
+#logo {
+  padding: 0 20px;
+  line-height: var(--nav-H);
+  font-size: 20px;
+  font-family: sans;
+}
+
+/*  SIDE PANEL CSS  */
+#side-panel {
+  background-color: var(--side-panel-bg);
+  background: var(--bg-e);
+  padding: 0;
+  margin: 0 !important;
+  width: min(50%, 200px);
+  transition: 200ms;
+  display: block;
+  height: calc(var(--innerH) - 50px);
+  opacity: 99%;
+  transform-origin: 0 0;
+  overflow: hidden;
+/*  box-shadow: 3px 3px 5px var(--nav-shd-clr);*/
+  position: fixed !important;
+
+  z-index: 999 !important;
+}
+
+.side-panel-item:hover{
+  background-color: var(--side-panel-item-bg);
+} 
+
+.side-panel-item[active="true"] {
+  box-shadow: inset 0 0 5px #333;
+}
+
+.side-panel-item[active="true"]::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 5px;
+  background-color: #5c6bc0 !important;
+}
+
+a img {
+  height: 25px;
+  filter: invert(var(--side-panel-icon-invert)) !important;
+  margin: 0;
+  padding: 0;
+}
+
+.side-panel-item > span {
+  display: block;
+  /*  background-color: green;*/
+  line-height: 25px;
+  height: 25px;
+  margin-left: 10px;
+}
+
+.side-panel-item {
+  text-decoration: 0;
+  color: var(--side-panel-item-clr);
+  display: flex;
+  box-sizing: border-box;
+  height: 40px;
+  padding: 7.5px 10px;
+  border-radius: 0 5px 5px 0;
+  white-space: nowrap;
+  margin: 0 5px 0 0px;
+}
+
+@media only screen and (min-width: 600px) {
+  .side-panel-x {
+    width: 45px !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .side-panel-x {
+    transform: translateX(-205px);
+    opacity: 0;
+  }
+}
+
+
+
+main#outlet {
+  height: calc(var(--innerH) - 50px);
+  background-color: var(--window-bg);
+  color: var(--window-clr);
+  overflow: scroll;
+}
+
+.app {
+  --w: min(100%, 400px);
+  width: var(--w);
+  position: relative;
+  left: calc(50% - var(--w)/2);
+/*  background: rgba(0, 0, 0, 0.2);*/
+  padding: 5px;
+  box-sizing: border-box;
+
+}
+
+@media only screen and (min-width:600px) {
+  #outlet {
+        padding: 0 0 0 45px;
+/*        height: calc(var(--inner-H) - 55px ) !important;*/
+  }
+}
+
+body {
+  margin: 0;
+  height: var(--innerH);
+  --nav-H: 50px;
 }
 
 * {
+  -webkit-tap-highlight-color: transparent;
+  font-family: sans;
+  position: relative;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+/*    outline: solid;*/
+}
+
+*::-webkit-scrollbar {
+  display: none;
+  /* Safari and Chrome */
+}
+
+.d-no {
+  display: none !important;
+}
+
+.middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+[box="collapsed"] {
+  /*  transform-origin: 50% 0;*/
+  height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  /*  transform: scaleY(0);*/
+  opacity: 0;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+.center-H {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.center-V {
+  display: flex;
+  align-items: center;
+}
+
+.p-s {
+  padding : 5px;
+}
+
+.p {
+  padding: 10px;
+}
+
+.bdr-b {
+  border-bottom: 1px solid;
+}
+
+.m {
+  margin: 10px;
+}
+
+.bb {
   box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
 
 a {
-  color: inherit;
   text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }
