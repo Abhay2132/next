@@ -69,7 +69,7 @@ const A = memo(function ({ icon, href, text, cn, onClick, dataactive, index }) {
       dataactive={"" + dataactive}
       data-index={index}
     >
-      <img src={icon} gc={""+!!console.log({icon})||icon} /> <span>{text}</span>
+      <img src={icon} gc={""+(!!console.log({icon})||icon)} /> <span>{text}</span>
     </Link>
   );
 });
