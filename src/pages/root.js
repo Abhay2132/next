@@ -11,14 +11,8 @@ export default function Root({ children }) {
       location?.pathname?.slice(5) == item[0]
     )
       ai = i;
-    if(typeof location !== "undefined") console.log(
-      item[0],
-      location?.pathname?.slice(5),
-      typeof location !== "undefined" && location?.pathname?.slice(5) == item[0]
-    );
   });
 
-  console.log({ai})
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(ai);
 
@@ -31,13 +25,12 @@ export default function Root({ children }) {
   const items = itemD.map(([href, icon, text, cn], i) => (
     <A
       key={i}
-      gc={""+!!console.log(active)}
       href={href}
       icon={icon}
       text={text}
       cn={cn}
       onClick={e.current}
-      dataActive={active == i}
+      dataactive={active == i}
       index={i}
     />
   ));
@@ -50,7 +43,7 @@ export default function Root({ children }) {
       <nav>
         <div
           className={open ? "hmbgr-x" : "hmbgr"}
-          onClick={() => console.log(1, setOpen(!open))}
+          onClick={() => setOpen(!open)}
           id="hmbgr"
         >
           <hr />
@@ -67,13 +60,13 @@ export default function Root({ children }) {
   );
 }
 
-const A = memo(function ({ icon, href, text, cn, onClick, dataActive, index }) {
+const A = memo(function ({ icon, href, text, cn, onClick, dataactive, index }) {
   return (
     <Link
       href={href}
       className={cn}
       onClick={onClick}
-      dataActive={"" + dataActive}
+      dataactive={"" + dataactive}
       data-index={index}
     >
       <img src={icon} /> <span>{text}</span>
@@ -81,11 +74,18 @@ const A = memo(function ({ icon, href, text, cn, onClick, dataActive, index }) {
   );
 });
 
+const isServer = typeof window == "undefined";
 const itemD = [
-  ["/", "/next/icons/home.svg", "Home", "side-panel-item"],
-  ["/about", "/next/icons/about.svg", "About", "side-panel-item"],
-  ["/settings", "/next/icons/setting.svg", "Settings", "side-panel-item"],
-];
+  ["/", "/icons/home.svg", "Home", "side-panel-item"],
+  ["/about", "/icons/about.svg", "About", "side-panel-item"],
+  ["/settings", "/icons/setting.svg", "Settings", "side-panel-item"],
+].map((item)=>{
+  if(isServer) item[1] = (process.env.BASEPATH||"")+item[1]
+  else if(location.pathname.startsWith("/next")) item[1] = "/next"+item[1]
+  return item;
+})
+
+// console.log(itemD);
 
 function setH() {
   if (typeof window == "undefined") return;

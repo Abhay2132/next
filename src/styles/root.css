@@ -73,11 +73,11 @@ nav {
   background-color: var(--side-panel-item-bg);
 } 
 
-.side-panel-item[dataActive="true"] {
+.side-panel-item[dataactive="true"] {
   box-shadow: inset 0 0 5px #333;
 }
 
-.side-panel-item[dataActive="true"]::after {
+.side-panel-item[dataactive="true"]::after {
   content: "";
   display: block;
   position: absolute;
